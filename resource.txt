@@ -1,0 +1,3 @@
+Current Memory Utilization is : 44.70%
+
+Current Memory Utilization is : 6.85959%
