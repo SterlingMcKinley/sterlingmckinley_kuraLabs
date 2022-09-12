@@ -11,15 +11,20 @@
 # --------------------- --------------- --------------------------------
 # Sterling McKinley	 2022-08-20	  Initial version
 # ======================================================================
-mem=$(free -t | awk 'NR == 2 {printf("Current Memory Utilization is : %.2f%"), $3/$2*100}')
+mem=$(free -t | awk 'NR == 2 {printf("%.2f%"), $3/$2*100}')
 cpu=$(grep 'cpu ' /proc/stat | awk '{usage=($2+$4)*100/($2+$4+$5)} END {print usage "%"}')
+current_time=$(date "+%Y.%m.%d-%H.%M.%S")
 
-touch resource.txt
-chmod 755 resoruce.txt
-date;time
-echo" "
-echo" "
-$mem" >> resource.txt
+touch resource$current_time.txt
+chmod 755 resource$current_time.txt
+date;
+date >> resource$current_time.txt
+
+
+echo " Please refer to resource.txt for memory & cpu utlization."
 echo " "
-echo "Current Memory Utilization is : " >> resource.txt
-"$cpu" >> resource.txt
+echo " "
+echo "Current Memory Utilization is: $mem" >> resource$current_time.txt
+echo " "
+echo " "
+echo "Current CPU Utilization is: $cpu" >> resource$current_time.txt
