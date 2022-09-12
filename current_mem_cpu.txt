@@ -1,3 +1,0 @@
-current memory: 36.10%
-
-current cpu: 6.83829%
